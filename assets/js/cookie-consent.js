@@ -3,10 +3,13 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     // Check if the user has already given consent
-    if (!localStorage.getItem('cookieConsent')) {
-        // Show the cookie consent banner
-        showCookieConsent();
-    }
+	if (localStorage.getItem('cookieConsent')) {
+        // Initialize Google Analytics if consent is already given
+        initializeGoogleAnalytics();
+    }else{
+		// Show the cookie consent banner
+		showCookieConsent();
+	}
 });
 
 function showCookieConsent() {
@@ -38,6 +41,7 @@ function showCookieConsent() {
 }
 
 function initializeGoogleAnalytics() {
+	//console.log("Add Google Analytics tracking code");
     // Add Google Analytics tracking code
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -60,5 +64,5 @@ function initializeGoogleAnalytics() {
     );
 
     gtag('js', new Date());
-    gtag('config', 'G-JK8T9PJNL0');
+    gtag('config', 'G-MV1L2SX33L');
 }
